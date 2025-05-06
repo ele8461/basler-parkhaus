@@ -12,3 +12,26 @@ async function loadTimetable() {
 }
 const timetable = await loadTimetable();
 console.log(timetable); // gibt die Daten der API oder false in der Konsole aus
+
+// was wir brauchen vom datensatz:
+//title
+//free
+//auslastung_prozent
+//status
+//address
+    //lon:
+    //lat:
+
+
+// event scroll moveCar
+
+// event click popup
+    // Datensatz anzeigen
+    // Funktion Regler
+
+// event click close_popup
+
+// event contentLoading kreisfarbe
+    // Funktion if > 80% {rot} else {gruen}
+
+//event click button_zurueck
