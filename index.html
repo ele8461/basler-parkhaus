@@ -5,52 +5,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS/style.css">
     <title>Basel Parkplatz</title>
+    <script type="module" src="js/script.js"></script>
 </head>
 <body>
-    <section class="head">
-        <img src="img/Logo-Basel-Parkhaus.png" alt="logo-basel-parkplatz" id="logo">
+    <section class="head" id="start">
+        <img src="img/Logo-Basel-Parkhaus.png" alt="logo basel parkplatz" id="logo">
         <p>Finde den perfekten Parkplatz in Basel.<br>Scrolle zum gewünschten Parkhaus, klicke es an und erhalte die Live-Daten zur Auslastung.</p>
         <p id="button-ready">READY?</p>
+        <section class="animation">
+            <div class="first"><div>Ready?</div></div>
+            <div class="second"><div>Set</div></div>
+            <div class="third"><div>Goo!</div></div>
+            <div class="fourth"><div><button class="ready-button">READY?</button></div></div>
+          </section>               
     </section>    
-    
 
-    <section class="section-strasse">
+    <section class="section_strasse">
         <div class="strasse"></div>
-      </section>
+    </section>
       
   
-
-    <section class="section-parkhaus-links">
-        <div class="parkhaus-flaeche">
-            <img src="img/Icon-Parkhaus.svg" alt="icon-parkhaus" id="icon-parkhaus">
+    <section class="section_parkhaus_links">
+        <div class="parkhaus_und_highlight">
+          <div class="parkhaus_flaeche">
+            <img src="img/Icon-Parkhaus.svg" alt="icon parkhaus" id="icon_parkhaus">
             <h2>Parkhaus Europe</h2>
-            <div class="status">
-            </div>
+            <div class="status"></div>
+          </div>
+              <img src="img/Basler-Muenster.svg" alt="Theatermaske" class="highlight">
         </div>
     </section>
 
-    <section class="section-parkhaus-rechts">
-        <div class="parkhaus-flaeche">
-            <img src="img/Icon-Parkhaus.svg" alt="icon-parkhaus" id="icon-parkhaus">
+
+    <section class="section_parkhaus_rechts">
+        <div class="parkhaus_flaeche">
+            <img src="img/Icon-Parkhaus.svg" alt="icon parkhaus" id="icon_parkhaus">
             <h2>Parkhaus Clarahuus</h2>
-            <div class="status">
-            </div>
+            <div class="status"></div>
         </div>
     </section>
+    
 
-
-    <section class="section-parkhaus-rechts">
-        <div class="parkhaus-flaeche">
-            <img src="img/Icon-Parkhaus.svg" alt="icon-parkhaus" id="icon-parkhaus">
+     <section class="section_parkhaus_rechts">
+        <div class="parkhaus_und_highlight">
+            <div class="parkhaus_flaeche">
+             <img src="img/Icon-Parkhaus.svg" alt="icon parkhaus" id="icon_parkhaus">
             <h2>Parkhaus Rebgasse</h2>
-            <div class="status">
-            </div>
+        <div class="status"></div>
+        </div>
+            <img src="img/Fasnacht.svg" alt="Theatermaske" class="highlight">
         </div>
     </section>
 
-    <section class="section-parkhaus-links">
-        <div class="parkhaus-flaeche">
-            <img src="img/Icon-Parkhaus.svg" alt="icon-parkhaus" id="icon-parkhaus">
+      
+    
+
+
+     <section class="section_rhein">
+            <img id="rhein" src="img/rhein.png" alt="Der Rhein">
+     </section>
+
+    <section class="section_parkhaus_links">
+        <div class="parkhaus_flaeche">
+            <img src="img/Icon-Parkhaus.svg" alt="icon parkhaus" id="icon_parkhaus">
             <h2>Parkhaus Storchen</h2>
             <div class="status">
             </div>
@@ -58,10 +75,11 @@
     </section>
 
     <div class="button">
-        <button id="button">ZURÜCK</button>
+        <a href="#start" id="button">Zurück</a>
     </div>
     
+<footer>
 
-    <script type="module" src="js/script.js"></script>
+</footer>
 </body>
 </html>

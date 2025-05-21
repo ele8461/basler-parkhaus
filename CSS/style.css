@@ -27,7 +27,8 @@
 }
 
 
-/*wiederkehrende elemente*/
+
+/*wiederkehrende_elemente*/
   body {
     background-color: var(--grau);
 }
@@ -49,11 +50,12 @@ p {
 }
 
 .button{
-    display: flex;
-    justify-content: center;
-    margin: 2rem;
-    z-index: 999;
-    }
+    display:flex;
+    justify-content:center;
+    margin:2rem;
+    position:relative;   
+    z-index:10;          /* größer als .section-strasse (3)          */
+  }
     
 #button{
     background: linear-gradient(to right, 
@@ -79,6 +81,8 @@ font-size: 1.5rem;
 font-style: italic;
 font-weight: 1000;
 letter-spacing: 0.1rem;
+
+
 }
 
 
@@ -93,19 +97,21 @@ letter-spacing: 0.1rem;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding: 1rem;
 
     height: 100vh;
     text-align: center;
     gap: 2rem;
     position:relative;   /* bleibt beim Scrollen oben kleben – alternativ: relative */
     z-index:1000;      /* höher als .scene (999) = ganz vorn */
+
 }
                 
 #asphalt{
     z-index: -1;
 }
 #logo{
-    width: 50vw;
+    width: 75vw;
 }
 
 #button-ready {
@@ -135,61 +141,154 @@ letter-spacing: 0.1rem;
     letter-spacing: 0.1rem;
 }
 
+.animation {
+  background: linear-gradient(to right, 
+  var(--gelb) 0%, 
+  var(--hellgelb) 50%, 
+  var(--gelb) 100%); 
+  height: 50px;
+  width: 100px;
+  overflow: hidden;
+}
+
+.animation > div > div {
+  padding: 0.25rem 0.75rem;
+  height:2.81rem;
+  margin-bottom: 2.81rem;
+  display:inline-block;
+}
+
+.animation div:first-child {
+  animation: text-animation 8s infinite;
+}
+
+@keyframes text-animation {
+  0% {margin-top: 0;}
+  10% {margin-top: 0;}
+  20% {margin-top: -5.62rem;}
+  30% {margin-top: -5.62rem;}
+  40% {margin-top: -11.24rem;}
+  60% {margin-top: -11.24rem;}
+  70% {margin-top: -5.62rem;}
+  80% {margin-top: -5.62rem;}
+  90% {margin-top: 0;}
+  100% {margin-top: 0;}
+}
+
+
+/* highlights */
+.section_rhein {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20vh;
+    background: none;
+    z-index: 1;
+    position: relative;
+}
+
+#rhein {
+  width: 100vw;       
+  height: auto;       
+  display: block;     
+  margin: 0 auto;
+}
+
+
+.parkhaus_und_highlight {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+}
+
+.highlight {
+  width: 6rem;
+  height: auto;
+  margin-top: 1rem;
+}
+
+
+
+
+
 /* strasse */
-.section-strasse{
-    position:fixed;          /* fixiert am Viewport */
-    inset:0;                 /* top/right/bottom/left = 0  */
-    pointer-events:none;     /* Inhalte darunter bleiben klickbar */
-    z-index:3;             /* ganz nach vorn */
+.section_strasse{
+    position:fixed;       
+    inset:0;                 
+    pointer-events:none;    
+    z-index:3;            
   }
   
-  /* 2) Straße zentriert im fixierten Layer ----------------- */
-  .strasse{
+.strasse{
     position:absolute;
     top:0;
     bottom:0;
     left:50%;
     transform:translateX(-50%);
-    width:30rem;          
+    width: 4rem;                 /* mobile   */
     background:var(--dunkelgrau);
+    padding: 1rem;
   }
-  
-/* mittellinie */
-.strasse::before{
+
+.strasse::before{ /* mittellinie */
     content:"";
     position:absolute;
     top:0;
     bottom:0;
     left:50%;
     transform:translateX(-50%); /* vertikal zentrieren */
-  
-    /* ───────── Linie ───────── */
     width:0;                        /* nötig, damit nur die Border zählt */
     border-left:10px dashed #fff;   /* Breite, Stil, Farbe */
   }
 
-/*parkhaeuser-wiederkehrend*/
-.parkhaus-flaeche {
-    width: 20rem;
-    height: 20rem;
-    flex-shrink: 0;
-    background: var(--parkhaus);
-    justify-content: center;
-    align-items: center; 
-    display: flex;
-    flex-direction: column;
+
+
+/*parkhaeuser*/
+.section_parkhaus_links{
+  display: flex;
+  align-items: center;      
+  justify-content: flex-start; 
+  margin-left: 1rem;        
+  height: 50vh;  
+  align-items: flex-end;         
+
 }
 
-h2 {
-    font-family: 'Univers', sans-serif;
-    background-color: var(--blau);  
-    color: white;             
-    text-align: center;
-    display: inline-block;
-    border-radius: 0.5rem;      
-    padding: 1rem;            
-    
+.section_parkhaus_rechts{
+display: flex;
+align-items: center;      
+justify-content: flex-end; 
+margin-right: 1rem;        
+height: 50vh; 
+align-items: flex-end;          
+
 }
+
+.parkhaus_flaeche {
+  width: 8rem;
+  height: 15rem;
+  background: var(--parkhaus);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+
+h2 {
+  font-family: 'Univers', sans-serif;
+  background-color: var(--blau);  
+  color: white;             
+  text-align: center;
+  display: inline-block;
+  border-radius: 0.5rem;      
+  padding: 0.5rem 1rem;  /* oben/unten 0.5rem, links/rechts 1rem */
+  font-size: 1rem;
+}
+
 
 .status {
     background-color: var(--gruen);   
@@ -199,32 +298,84 @@ h2 {
     margin-top: 1rem;
 }
 
-#icon-parkhaus{
-        width: 7rem;
-        height: 7rem;
+#icon_parkhaus{
+        width: 4rem;
+        height: 4rem;
         flex-shrink: 0;  
         margin-bottom: 1rem;
 }
 
-/* parkhaus sections*/
-.section-parkhaus-links{
-        display: flex;
-        align-items: center;      
-        justify-content: flex-start; 
-        margin-left: 5rem;        
-        height: 70vh;           
-    
-}
 
-.section-parkhaus-rechts{
-    display: flex;
-    align-items: center;      
-    justify-content: flex-end; 
-    margin-right: 5rem;        
-    height: 70vh;           
+
+
+
+/*breakpoints */
+@media (min-width:640px){
 
 }
 
-/* button_readyAnimation
+@media (min-width:768px){
+  .parkhaus_flaeche {
+    width: auto;
+    height: auto;}
+  .strasse{ 
+    width:10rem; }
+  #icon_parkhaus{
+      width: 4rem;
+      height: 4rem;}
+  h2{
+    padding: 0.5rem;  
+    font-size: 1rem  
+  }
+  .section_parkhaus_links{
+    margin-left: 2rem;
+  }
+  .section_parkhaus_rechts{
+    margin-right: 2rem;
+  }
+  #logo{
+    width: 50vw;
+}
+}
+
+@media (min-width:1024px){
+  .parkhaus_flaeche {
+    padding: 2rem;}
+  .strasse{ width:15rem; }
+  #icon_parkhaus{
+      width: 7rem;
+      height: 7rem;}
+  h2 { 
+    font-size: 1.5rem
+  }
+  .section_parkhaus_links{
+    margin-left: 3rem;
+  }
+  .section_parkhaus_rechts{
+    margin-right: 3rem;
+  }
+}
+
+@media (min-width:1280px){
+  .strasse{ width: 30rem; }
+   #icon_parkhaus{
+      width: 7rem;
+      height: 7rem;}
+  h2{
+    font-size: 1.75rem
+  }
+  .section_parkhaus_links{
+    margin-left: 5rem;
+  }
+  .section_parkhaus_rechts{
+    margin-right: 5rem;
+  }
+}
+
+
+
+
+
+
 
 /* Ankerlink button_readyAnimation to section strasse
