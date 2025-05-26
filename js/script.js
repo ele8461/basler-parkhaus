@@ -13,6 +13,19 @@ async function loadTimetable() {
 const timetable = await loadTimetable();
 console.log(timetable); // gibt die Daten der API oder false in der Konsole aus
 
+
+const dialog = document.getElementById("parkhausDialog");
+const dialogText = document.getElementById("dialog-text");
+
+// Alle klickbaren Flächen suchen
+document.querySelectorAll(".parkhaus_flaeche").forEach((flaeche) => {
+  flaeche.addEventListener("click", () => {
+    const title = flaeche.querySelector("h2")?.textContent || "Parkhaus Info";
+    dialogText.textContent = `Informationen zu: ${title}`;
+    dialog.showModal();
+  });
+});
+
 // was wir brauchen vom datensatz:
 //title
 //free
@@ -28,6 +41,17 @@ console.log(timetable); // gibt die Daten der API oder false in der Konsole aus
 // event click popup
     // Datensatz anzeigen
     // Funktion Regler
+const button_steinen = document.querySelector("#steinen");
+button_steinen.addEventListener("click", (e) => {
+  const haus_id = e.target.id;
+  const parkhaus = parkHouses.find(h => haus_id === h.id);
+  showDialog(parkhaus);
+});
+
+function showDialog(parkhaus) {
+  // dialog öffnen
+  // daten darstellen
+}
 
 // event click close_popup
 

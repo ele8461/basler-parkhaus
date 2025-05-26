@@ -281,8 +281,28 @@ align-items: center;
   justify-content: center;
   align-items: center;
   padding: 1rem;
+  border: none;
+  cursor: pointer;
 }
 
+dialog {
+  border: none;
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  max-width: 300px;
+  text-align: center;
+}
+
+.close {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
 
 h2 {
   font-family: 'Univers', sans-serif;
