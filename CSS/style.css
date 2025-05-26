@@ -112,49 +112,34 @@ letter-spacing: 0.1rem;
     width: 75vw;
 }
 
-/*#button-ready {
-    background: linear-gradient(to right, 
-        var(--gelb) 0%, 
-        var(--hellgelb) 50%, 
-        var(--gelb) 100%); 
-    width: 15rem;
-    height: 4.5rem;
-    flex-shrink: 0;
-    margin-top: 2rem;
+/*button-ready */
+.hintergrund{
+  background: linear-gradient(to right, 
+  var(--gelb) 0%, 
+  var(--hellgelb) 50%, 
+  var(--gelb) 100%); 
+width: 15rem;
+height: 4.5rem;
+flex-shrink: 0;
+margin-top: 2rem;
 
-    border: none;
-    border-radius: 0.5rem;
-
-    display: flex;                
-    align-items: center;         
-    justify-content: center;      
-    text-align: center;
-
-    color: var(--dunkelgrau);
-    text-align: center;
-    font-family: "Univers LT 93 ExtraBlackEx";
-    font-size: 1.5rem;
-    font-style: italic;
-    font-weight: 1000;
-    letter-spacing: 0.1rem;
+border: none;
+border-radius: 0.5rem;
 }
-*/
 
 .inner_heading{
   border: 0px solid #ddd; 
   height: 50px;
-  width: 300px;
   font-size: 45px;
   text-transform: uppercase;
   overflow: hidden;
-  text-align: center;   
   justify-content: center;
 
 }
 
 .inner_heading span{
   position: relative;
-  color: var(--hellgelb);
+  color: var(--dunkelgrau);
   text-align: center;
   font-family: "Univers LT 93 ExtraBlackEx";
   font-size: 1.5rem;
@@ -166,16 +151,9 @@ letter-spacing: 0.1rem;
 }
 
 @keyframes animation {
-  /* Wort 1 – READY */
   0%,   30%  { top: 0; }
-
-  /* kurzer Übergang zur nächsten Zeile */
-  33%,  63%  { top: -50px; }   /* Wort 2 – SET */
-
-  /* Übergang zu Wort 3 */
-  66%,  96%  { top: -100px; }  /* Wort 3 – GO! */
-
-  /* Sprung zurück zum Anfang, damit der Loop sauber startet */
+  33%,  63%  { top: -50px; } 
+  66%,  96%  { top: -100px; }
   100%       { top: 0; }
 }
 
