@@ -194,15 +194,15 @@ letter-spacing: 0.1rem;
   margin: 0 auto;
 }
 
-
-.parkhaus_und_highlight {
+.section_highlights{
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-  position: relative;
-}
+  align-items: center;      
+  justify-content: flex-start; 
+  margin-left: 1rem;        
+  height: 50vh;  
+  align-items: center;         
 
+}
 .highlight {
   width: 6rem;
   height: auto;
@@ -252,7 +252,7 @@ letter-spacing: 0.1rem;
   justify-content: flex-start; 
   margin-left: 1rem;        
   height: 50vh;  
-  align-items: flex-end;         
+  align-items: center;         
 
 }
 
@@ -262,7 +262,7 @@ align-items: center;
 justify-content: flex-end; 
 margin-right: 1rem;        
 height: 50vh; 
-align-items: flex-end;          
+align-items: center;          
 
 }
 
