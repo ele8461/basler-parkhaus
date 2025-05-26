@@ -196,8 +196,8 @@ letter-spacing: 0.1rem;
   display: flex;
   align-items: center;      
   justify-content: flex-start; 
-  margin-left: 2rem;        
-  height: 20vh;  
+  margin-left: 1rem;
+  padding: 2rem 0;         
   align-items: center;         
 }
 
@@ -205,14 +205,14 @@ letter-spacing: 0.1rem;
   display: flex;
   align-items: center;      
   justify-content: flex-end; 
-  margin-right: 2rem;        
-  height: 20vh;  
+  margin-right: 1rem;
+  padding: 2rem 0;        
   align-items: center;         
 }
 
 #highlight {
-  width: auto;
-  height: 5rem;
+  width: 30%;
+  height: auto;
 }
 
 
@@ -364,6 +364,9 @@ h2 {
   .section_parkhaus_rechts{
     margin-right: 3rem;
   }
+  #highlight{
+
+  }
 }
 
 @media (min-width:1280px){
@@ -379,6 +382,9 @@ h2 {
   }
   .section_parkhaus_rechts{
     margin-right: 5rem;
+  }
+  #highlight{
+
   }
 }
 
