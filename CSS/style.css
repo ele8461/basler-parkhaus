@@ -364,9 +364,6 @@ h2 {
   .section_parkhaus_rechts{
     margin-right: 3rem;
   }
-  #highlight{
-
-  }
 }
 
 @media (min-width:1280px){
@@ -382,9 +379,6 @@ h2 {
   }
   .section_parkhaus_rechts{
     margin-right: 5rem;
-  }
-  #highlight{
-
   }
 }
 
