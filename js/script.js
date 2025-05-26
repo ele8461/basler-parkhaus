@@ -1,5 +1,6 @@
 console.log('hoi')
 
+// fetch
 const url = 'https://data.bs.ch/api/explore/v2.1/catalog/datasets/100088/records?limit=20';
 async function loadTimetable() {
     try {
@@ -19,7 +20,7 @@ const parkHouses = [
     id: "baselparkhauseurope",
     name: "Parkhaus Europe",
     freie_plaetze: 85,
-    auslastung: 65
+    auslastung: 65,
   },
   {
     id: "baselparkhausclarahuus",
