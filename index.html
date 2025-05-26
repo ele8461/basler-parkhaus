@@ -25,13 +25,19 @@
         <div class="strasse"></div>
     </section>
       
-
- <section class="section_parkhaus_links">
-        <div class="parkhaus_flaeche">
+    <dialog id="parkhaus-dialog">
+        <button id="dialog-close">✖</button>
+         <div id="dialog-content">
+             <!-- Parkhausdaten kommen hier rein -->
+        </div>
+    </dialog>
+    
+    <section class="section_parkhaus_links">
+        <button id="baselparkhauseurope" class="parkhaus_flaeche" type="button">
             <img src="img/Icon-Parkhaus.svg" alt="icon parkhaus" id="icon_parkhaus">
              <h2>Parkhaus Europe</h2>
             <div class="status"></div>
-        </div>
+        </button>
     </section>
 
 
@@ -42,20 +48,20 @@
     </section>
 
     <section class="section_parkhaus_rechts">
-        <div class="parkhaus_flaeche">
+        <button id="baselparkhausclarahuus" class="parkhaus_flaeche" type="button">
              <img src="img/Icon-Parkhaus.svg" alt="icon parkhaus" id="icon_parkhaus">
              <h2>Parkhaus Clarahuus</h2>
              <div class="status"></div>
-        </div>
+        </button>
     </section>
 
 
      <section class="section_parkhaus_rechts">
-        <div class="parkhaus_und_highlight">
-            <div class="parkhaus_flaeche">
-             <img src="img/Icon-Parkhaus.svg" alt="icon parkhaus" id="icon_parkhaus">
-            <h2>Parkhaus Rebgasse</h2>
-        <div class="status"></div>
+            <button id="baselparkhausrebgasse" class="parkhaus_flaeche" type="button">
+                <img src="img/Icon-Parkhaus.svg" alt="icon parkhaus" id="icon_parkhaus">
+                <h2>Parkhaus Rebgasse</h2>
+                <div class="status"></div>
+            </button>
     </section>
 
      <section class="section_highlights_rechts">
@@ -64,20 +70,17 @@
         </div>
      </section>
 
-
      <section class="section_rhein">
-            <img id="rhein" src="img/rhein.png" alt="Der Rhein">
-     </section>
-     
+    </section>
+
 
     <section class="section_parkhaus_links">
-        <div class="parkhaus_flaeche">
+        <button id="baselparkhausstorchen" class="parkhaus_flaeche" type="button">
             <img src="img/Icon-Parkhaus.svg" alt="icon parkhaus" id="icon_parkhaus">
              <h2>Parkhaus Storchen</h2>
-            <div class="status">
-            </div>
-        </div>
-    </section>
+            <div class="status"></div>
+        </button>
+     </section>
 
     <div class="button">
         <a href="#start" id="button">Zurück</a>
