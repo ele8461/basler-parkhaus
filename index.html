@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS/style.css">
     <title>Basel Parkplatz</title>
-    <script type="module" src="js/script.js"></script>
 </head>
 <body>
-    <section class="head" id="start">
+    <header class="header" id="start">
         <img src="img/Logo-Basel-Parkhaus.png" alt="logo basel parkplatz" id="logo">
-        <p>Finde den perfekten Parkplatz in Basel.<br>Scrolle zum gewünschten Parkhaus, klicke es an und erhalte die Live-Daten zur Auslastung.</p>
-        
+        <div class="fonts"><h1>Finde dein Slot</h1>
+        <p>Scrolle zum gewünschten Parkhaus, klicke es an und erhalte die Live-Daten zur Auslastung.</p>
+        </div>
+
         <div class="hintergrund">
             <div class="inner_heading">
              <span>
@@ -21,20 +22,20 @@
              </span>
             </div>  
         </div>         
-    </section>    
+    </header>    
 
-
+<main>
     <section class="section_strasse">
         <div class="strasse"></div>
         <div class="auto">
-            <img src="img/Auto.svg" alt="Auto">
+            <img src="img/Auto.svg" alt="auto">
         </div>
     </section>
 
 
     <section class="section_parkhaus_links">
         <button id="baselparkhauseurope" class="parkhaus_flaeche" type="button">
-            <img src="img/Icon-Parkhaus.svg" alt="icon parkhaus" id="icon_parkhaus">
+            <img src="img/Icon-Parkhaus.svg" alt="icon parkhaus" class="icon_parkhaus">
              <h2>Parkhaus Europe</h2>
             <div class="status"></div>
         </button>
@@ -42,14 +43,12 @@
 
 
     <section class="section_highlights">
-         </div>
-              <img src="img/Basler-Muenster 2.png" alt="Theatermaske" class="highlight" id="highlight">
-        </div>
+              <img src="img/Basler-Muenster 2.png" alt="basler münster" class="highlight" id="muenster">
     </section>
 
     <section class="section_parkhaus_rechts">
         <button id="baselparkhausclarahuus" class="parkhaus_flaeche" type="button">
-             <img src="img/Icon-Parkhaus.svg" alt="icon parkhaus" id="icon_parkhaus">
+             <img src="img/Icon-Parkhaus.svg" alt="icon parkhaus" class="icon_parkhaus">
              <h2>Parkhaus Clarahuus</h2>
              <div class="status"></div>
         </button>
@@ -58,36 +57,53 @@
 
      <section class="section_parkhaus_rechts">
             <button id="baselparkhausrebgasse" class="parkhaus_flaeche" type="button">
-                <img src="img/Icon-Parkhaus.svg" alt="icon parkhaus" id="icon_parkhaus">
+                <img src="img/Icon-Parkhaus.svg" alt="icon parkhaus" class="icon_parkhaus">
                 <h2>Parkhaus Rebgasse</h2>
                 <div class="status"></div>
             </button>
     </section>
 
+
      <section class="section_highlights_rechts">
-           </div>
-            <img src="img/Fasnacht 2.png" alt="Theatermaske" class="highlight" id="highlight">
-        </div>
+            <img src="img/Fasnacht 2.png" alt="fasnacht" class="highlight" id="fasnacht">
      </section>
 
+     
      <section class="section_rhein">
+        <img src="img/rhein.png" alt="rhein">
     </section>
 
 
     <section class="section_parkhaus_links">
         <button id="baselparkhausstorchen" class="parkhaus_flaeche" type="button">
-            <img src="img/Icon-Parkhaus.svg" alt="icon parkhaus" id="icon_parkhaus">
+            <img src="img/Icon-Parkhaus.svg" alt="icon parkhaus" class="icon_parkhaus">
              <h2>Parkhaus Storchen</h2>
             <div class="status"></div>
         </button>
      </section>
 
-    <div class="button">
-        <a href="#start" id="button">Zurück</a>
-    </div>
-    
-<footer>
+    <nav class="button" >
+        <a href="#start" class="button_hg">Zurück</a>
+    </nav>
+</main>
 
-</footer>
+<footer class="footer">
+    <div class="logo">
+      <img src="img/Logo-Basel-Parkhaus.png" alt="logo basel parkhaus">
+    </div>
+  
+    <div class="address">
+     <strong Parkhäuser Basel-Stadt></strong><br>
+      Auberg&nbsp;2A, 4051 Basel
+    </div>
+  
+    <div class="contact">
+      079&nbsp;123&nbsp;45&nbsp;67<br>
+      <a href="mailto:mail@parkplatz-basel.ch">mail@parkplatz-basel.ch</a>
+    </div>
+  </footer>
+
+
+<script type="module" src="js/script.js"></script>
 </body>
 </html>

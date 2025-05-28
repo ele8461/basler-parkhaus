@@ -1,4 +1,4 @@
-/*globale einstellungen*/
+/* ------------- globale_einstellungen ------------- */
 * {
     margin: 0;
     padding: 0;
@@ -13,30 +13,68 @@
     --parkhaus: #435266;
     --dunkelgrau: #353535;
     --grau: grey;
-    
+    --font-primary: "Univers LT", Arial, sans-serif;
   }
-  
+ 
+  html{
+    scroll-behavior: smooth;  
+  }
 
-  @font-face {
-    font-family: 'Univers';
-    src: url('fonts/Univers LT 55 Roman.ttf') format('ttf'),
-         url('fonts/Univers LT 93 Extra Black Extended Oblique.ttf') format('ttf'),
-         url('fonts/Univers LT 65 Bold.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+/* ------------- fonts ------------- */
+@font-face {
+  font-family: "Univers LT";
+  src: url("/fonts/UniversLT-55Roman.woff2") format("woff2"),
+       url("/fonts/UniversLT-55Roman.woff")  format("woff"),
+       url("/fonts/UniversLT-55Roman.otf")   format("opentype"),
+       url("/fonts/UniversLT-55Roman.ttf")   format("truetype");
+  font-weight: 400;
+  font-style : normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Univers LT";
+  src: url("/fonts/UniversLT-65Bold.woff2") format("woff2"),
+       url("/fonts/UniversLT-65Bold.woff")  format("woff"),
+       url("/fonts/UniversLT-65Bold.otf")   format("opentype"),
+       url("/fonts/UniversLT-65Bold.ttf")   format("truetype");
+  font-weight: 700;
+  font-style : normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Univers LT";
+  src: url("/fonts/UniversLT-93ExtraBlackExtOblique.woff2") format("woff2"),
+       url("/fonts/UniversLT-93ExtraBlackExtOblique.woff")  format("woff"),
+       url("/fonts/UniversLT-93ExtraBlackExtOblique.otf")   format("opentype"),
+       url("/fonts/UniversLT-93ExtraBlackExtOblique.ttf")   format("truetype");
+  font-weight: 900;          
+  font-stretch: expanded;    
+  font-style : oblique 10deg;
+  font-display: swap;
 }
 
 
-
-/*wiederkehrende_elemente*/
+.fonts{
+  gap: 1.8rem;
+}
+/* ------------- wiederkehrende_objekte ------------- */
   body {
     background-color: var(--grau);
+    font-family: var(--font-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 h1 {
     text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font-primary);
     color: white;
+    line-height: 1.875rem; 
+    font-family: "Univers LT 93 ExtraBlackEx";
+    font-size: 1.8rem;
+    font-style: italic;
 }
 
 p {
@@ -46,7 +84,7 @@ p {
     font-size: 1.25rem;
     font-style: normal;
     font-weight: 400;
-    line-height: 1.875rem; /* 150% */
+    line-height: 1.875rem; 
 }
 
 .button{
@@ -54,10 +92,11 @@ p {
     justify-content:center;
     margin:2rem;
     position:relative;   
-    z-index:10;          /* größer als .section-strasse (3)          */
+    z-index:10; 
+            
   }
     
-#button{
+.button_hg{
     background: linear-gradient(to right, 
     var(--gelb) 0%, 
     var(--hellgelb) 50%, 
@@ -69,7 +108,7 @@ flex-shrink: 0;
 border: none;
 border-radius: 0.5rem;
 
-display: flex;                /* ← wichtig für Zentrierung */
+display: flex;                
 align-items: center;          
 justify-content: center;      
 text-align: center;
@@ -81,11 +120,12 @@ font-size: 1.5rem;
 font-style: italic;
 font-weight: 1000;
 letter-spacing: 0.1rem;
+
 }
 
 
-/*header*/
-.head {
+/* ------------- header ------------- */
+.header {
     background-image: url('../img/HG-Asphalt.png');
     background-size: cover;
     background-position: center;
@@ -100,8 +140,8 @@ letter-spacing: 0.1rem;
     height: 100vh;
     text-align: center;
     gap: 2rem;
-    position:relative;   /* bleibt beim Scrollen oben kleben – alternativ: relative */
-    z-index:1000;      /* höher als .scene (999) = ganz vorn */
+    position:relative;
+    z-index:1000;     
 
 }
                 
@@ -112,7 +152,7 @@ letter-spacing: 0.1rem;
     width: 75vw;
 }
 
-/*button-ready */
+/* ------------- animation_button_ready ------------- */
 .hintergrund{
   background: linear-gradient(to right, 
   var(--gelb) 0%, 
@@ -161,17 +201,11 @@ border-radius: 0.5rem;
 
 
 
-/* highlights */
-.section_rhein {
+/* ------------- highlights ------------- */
+.section_rhein img {
   width: 100%;
-  height: 100vh; /* oder z. B. 400px */
-  background-image: url('img/rhein.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  z-index: 999;  /* nonig fertig */
+  object-fit: cover;    
 }
-
 
 
 .section_highlights{
@@ -192,7 +226,8 @@ border-radius: 0.5rem;
   align-items: center;         
 }
 
-#highlight {
+#fasnacht,
+#muenster {
   width: 30%;
   height: auto;
 }
@@ -200,8 +235,7 @@ border-radius: 0.5rem;
 
 
 
-
-/* strasse */
+/* ------------- strasse ------------- */
 .section_strasse{
     position:fixed;       
     inset:0;                 
@@ -215,7 +249,7 @@ border-radius: 0.5rem;
     bottom:0;
     left:50%;
     transform:translateX(-50%);
-    width: 4rem;                 /* mobile   */
+    width: 4rem;                
     background:var(--dunkelgrau);
     padding: 1rem;
   }
@@ -226,12 +260,13 @@ border-radius: 0.5rem;
     top:0;
     bottom:0;
     left:50%;
-    transform:translateX(-50%); /* vertikal zentrieren */
-    width:0;                        /* nötig, damit nur die Border zählt */
-    border-left:10px dashed #fff;   /* Breite, Stil, Farbe */
+    transform:translateX(-50%); 
+    width:0;                       
+    border-left:10px dashed #fff; 
   }
 
-/*auto*/
+
+/* ------------- auto ------------- */
 .auto {
   position: fixed;
   top: 50%;
@@ -242,16 +277,16 @@ border-radius: 0.5rem;
   height: auto;
 }
 
-/*parkhaeuser*/
+/* ------------- parkhaeuser ------------- */
 .section_parkhaus_links{
   display: flex;
   align-items: center;      
   justify-content: flex-start; 
   margin-left: 1rem;        
   height: 50vh;  
-  align-items: center;         
-
+  align-items: center;  
 }
+
 
 .section_parkhaus_rechts{
 display: flex;
@@ -276,6 +311,10 @@ align-items: center;
   cursor: pointer;
 }
 
+.parkhaus_flaeche:hover {
+  background: #133F63; 
+}
+
 h2 {
   font-family: 'Univers', sans-serif;
   background-color: var(--blau);  
@@ -283,7 +322,7 @@ h2 {
   text-align: center;
   display: inline-block;
   border-radius: 0.5rem;      
-  padding: 0.5rem 1rem;  /* oben/unten 0.5rem, links/rechts 1rem */
+  padding: 0.5rem 1rem; 
   font-size: 1rem;
 }
 
@@ -296,7 +335,7 @@ h2 {
     margin-top: 1rem;
 }
 
-#icon_parkhaus{
+.icon_parkhaus{
         width: 4rem;
         height: 4rem;
         flex-shrink: 0;  
@@ -304,7 +343,7 @@ h2 {
 }
 
 
-/* Dialog-Grundstil */
+/* ------------- dialog_grundstil ------------- */
 dialog#parkhaus-dialog {
   padding: 2rem;
   border: none;
@@ -314,12 +353,12 @@ dialog#parkhaus-dialog {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
 }
 
-/* Abdunklung des Hintergrunds automatisch */
+/* ------------- abdunklung_hg_automatisch ------------- */
 dialog::backdrop {
   background: rgba(0, 0, 0, 0.6);
 }
 
-/* OK-Button */
+/* ------------- ok-button ------------- */
 #dialog-close {
   position: absolute;
   top: 0.5rem;
@@ -331,7 +370,7 @@ dialog::backdrop {
 }
 
 
-/*breakpoints */
+/* ------------- breakpoints ------------- */
 @media (min-width:640px){
 
 }
@@ -342,7 +381,7 @@ dialog::backdrop {
     height: auto;}
   .strasse{ 
     width:10rem; }
-  #icon_parkhaus{
+  .icon_parkhaus{
       width: 4rem;
       height: 4rem;}
   h2{
@@ -368,7 +407,7 @@ dialog::backdrop {
   .parkhaus_flaeche {
     padding: 2rem;}
   .strasse{ width:15rem; }
-  #icon_parkhaus{
+  .icon_parkhaus{
       width: 7rem;
       height: 7rem;}
   h2 { 
@@ -384,7 +423,7 @@ dialog::backdrop {
 
 @media (min-width:1280px){
   .strasse{ width: 30rem; }
-   #icon_parkhaus{
+   .icon_parkhaus{
       width: 7rem;
       height: 7rem;}
   h2{
@@ -397,11 +436,3 @@ dialog::backdrop {
     margin-right: 5rem;
   }
 }
-
-
-
-
-
-
-
-/* Ankerlink button_readyAnimation to section strasse
