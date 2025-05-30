@@ -23,10 +23,10 @@
 /* ------------- fonts ------------- */
 @font-face {
   font-family: "Univers LT";
-  src: url("/fonts/UniversLT-55Roman.woff2") format("woff2"),
-       url("/fonts/UniversLT-55Roman.woff")  format("woff"),
-       url("/fonts/UniversLT-55Roman.otf")   format("opentype"),
-       url("/fonts/UniversLT-55Roman.ttf")   format("truetype");
+  src: url("/fonts/Univers\ LT\ 55\ Roman.woff2") format("woff2"),
+       url("/fonts/Univers\ LT\ 55\ Roman.woff")  format("woff"),
+       url("/fonts/Univers-LT-55-Roman.otf")   format("opentype"),
+       url("/fonts/Univers\ LT\ 55\ Roman.ttf")   format("truetype");
   font-weight: 400;
   font-style : normal;
   font-display: swap;
@@ -34,10 +34,10 @@
 
 @font-face {
   font-family: "Univers LT";
-  src: url("/fonts/UniversLT-65Bold.woff2") format("woff2"),
-       url("/fonts/UniversLT-65Bold.woff")  format("woff"),
-       url("/fonts/UniversLT-65Bold.otf")   format("opentype"),
-       url("/fonts/UniversLT-65Bold.ttf")   format("truetype");
+  src: url("/fonts/Univers\ LT\ 65\ Bold.woff2") format("woff2"),
+       url("/fonts/Univers\ LT\ 65\ Bold.woff")  format("woff"),
+       url("/fonts/Univers-LT-65-Bold.otf")   format("opentype"),
+       url("/fonts/Univers\ LT\ 65\ Bold.ttf")   format("truetype");
   font-weight: 700;
   font-style : normal;
   font-display: swap;
@@ -56,35 +56,43 @@
 }
 
 
-.fonts{
+/* ------------- styles ------------- */
+.fonts {
+  font-family: "Univers LT", sans-serif;
+  font-weight: 400;
+  font-style: normal;
   gap: 1.8rem;
 }
-/* ------------- wiederkehrende_objekte ------------- */
-  body {
-    background-color: var(--grau);
-    font-family: var(--font-primary);
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+
+body {
+  background-color: var(--grau);
+  font-family: "Univers LT", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
+
 h1 {
-    text-align: center;
-    font-family: var(--font-primary);
-    color: white;
-    line-height: 1.875rem; 
-    font-family: "Univers LT 93 ExtraBlackEx";
-    font-size: 1.8rem;
-    font-style: italic;
+  text-align: center;
+  font-family: "Univers LT", sans-serif;
+  color: white;
+  line-height: 1.875rem;
+  font-weight: 900;
+  font-style: oblique 10deg;
+  font-stretch: expanded;
+  font-size: 1.8rem;
 }
 
 p {
-    color: #FFF;
-    text-align: center;
-    font-family: "Univers LT 55";
-    font-size: 1.25rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 1.875rem; 
+  color: #FFF;
+  text-align: center;
+  font-family: "Univers LT", sans-serif;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.875rem;
 }
 
 .button{
@@ -92,8 +100,7 @@ p {
     justify-content:center;
     margin:2rem;
     position:relative;   
-    z-index:10; 
-            
+    z-index:10;        
   }
     
 .button_hg{
@@ -115,7 +122,7 @@ text-align: center;
 
 color: var(--dunkelgrau);
 text-align: center;
-font-family: "Univers LT 93 ExtraBlackEx";
+font-family: "Univers LT", sans-serif;
 font-size: 1.5rem;
 font-style: italic;
 font-weight: 1000;
