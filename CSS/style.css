@@ -350,32 +350,52 @@ h2 {
 }
 
 
-/* ------------- dialog_grundstil ------------- */
+/* ------------- pop-up fenster ------------- */
 dialog#parkhaus-dialog {
-  padding: 2rem;
+  padding: 0;
   border: none;
   border-radius: 10px;
-  max-width: 400px;
   width: 90%;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  max-width: 400px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  background-color: #fff;
+  font-family: "Univers LT", sans-serif;
+  position: relative;
 }
 
-/* ------------- abdunklung_hg_automatisch ------------- */
-dialog::backdrop {
-  background: rgba(0, 0, 0, 0.6);
+.dialog-header {
+  background-color: #0071bc;
+  color: white;
+  padding: 1rem;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-/* ------------- ok-button ------------- */
-#dialog-close {
-  position: absolute;
-  top: 0.5rem;
-  right: 0.7rem;
+.dialog-header h3 {
+  margin: 0;
   font-size: 1.2rem;
+}
+
+#dialog-close {
+  font-size: 1.5rem;
+  background: none;
   border: none;
-  background: transparent;
+  color: white;
   cursor: pointer;
 }
 
+.dialog-content {
+  padding: 1.5rem;
+  font-size: 1rem;
+  color: #333;
+}
+
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.6);
+}
 
 /* ------------- breakpoints ------------- */
 @media (min-width:640px){
