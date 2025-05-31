@@ -43,32 +43,56 @@ const parkHouses = [
 ];
 
 
-// Alle Buttons mit der Klasse "parkhaus_flaeche" holen
-const buttons = document.querySelectorAll(".parkhaus_flaeche");
+// Map buttons to their popup IDs
+const popupMap = {
+  "baselparkhauseurope": "popup-europe",
+  "baselparkhausclarahuus": "popup-clarahuus",
+  "baselparkhausrebgasse": "popup-rebgasse",
+  "baselparkhausstorchen": "popup-storchen"
+};
 
-// EventListener zu jedem Button hinzufügen
-buttons.forEach(button => {
+// Helper to find parkhouse data by ID
+function getParkhouseData(id) {
+  return parkHouses.find(p => p.id === id);
+}
+
+// Add click listeners to parkhaus buttons
+Object.keys(popupMap).forEach(buttonId => {
+  const button = document.getElementById(buttonId);
+  const popupId = popupMap[buttonId];
+  const popup = document.getElementById(popupId);
+
   button.addEventListener("click", () => {
-    const hausId = button.id;
-    const parkhaus = parkHouses.find(h => h.id === hausId);
+    const data = getParkhouseData(buttonId);
+    if (!data) return;
 
-    if (parkhaus) {
-      showDialog(parkhaus);
-    } else {
-      console.warn(`Kein Parkhaus mit ID "${hausId}" gefunden.`);
-    }
+    // Inject data dynamically
+    popup.querySelector(".popup-title").textContent = data.name;
+    popup.querySelector(".freie_plaetze").textContent = data.freie_plaetze;
+    popup.querySelector(".auslastung").textContent = data.auslastung;
+
+    // Show popup
+    popup.style.display = "flex";
   });
 });
 
-// Funktion zur Anzeige der Parkhausdaten
-function showDialog(parkhaus) {
-  alert(
-    `${parkhaus.name}\n` +
-    `Freie Plätze: ${parkhaus.freie_plaetze}\n` +
-    `Auslastung: ${parkhaus.auslastung}%`
-  );
-}
+// Close popup on clicking the close button
+document.querySelectorAll(".close").forEach(closeBtn => {
+  closeBtn.addEventListener("click", () => {
+    const popupId = closeBtn.getAttribute("data-close");
+    const popup = document.getElementById(popupId);
+    popup.style.display = "none";
+  });
+});
 
+// Optional: Close popup on clicking outside popup content
+window.addEventListener("click", (e) => {
+  document.querySelectorAll(".popup").forEach(popup => {
+    if (e.target === popup) {
+      popup.style.display = "none";
+    }
+  });
+});
 
 // was wir brauchen vom datensatz:
 //title
