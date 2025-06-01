@@ -96,8 +96,6 @@ Object.entries(popupMap).forEach(([buttonId, popupId]) => {
 });
 
 
-
-
 // ------------------------ Pop-up schliessen -----------------------//
 // Popup schliessen - "x" Button
 document.querySelectorAll(".close").forEach(closeBtn => {

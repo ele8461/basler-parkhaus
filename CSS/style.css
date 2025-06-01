@@ -376,6 +376,10 @@ h2 {
   position: relative;
 }
 
+.popup-row p {
+  text-align: left;
+}
+
 /* Close X button */
 .popup .close {
   position: absolute;
@@ -385,7 +389,7 @@ h2 {
   cursor: pointer;
 }
 
-/*-----Auslastung-------*/
+/*-----Auslastung Regler-------*/
 .auslastung-bar-container {
   position: relative;
   width: 100%;
