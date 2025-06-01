@@ -19,7 +19,7 @@ const parkHouses = [
   {
     id: "baselparkhauseurope",
     title: "Parkhaus Europe",
-    auslastung_prozent: 0,
+    auslastung_prozent: 30,
     free: 0,
     status: "",
     address: "Hammerstrasse 68",
@@ -68,6 +68,15 @@ function fillPopup(popup, data) {
   popup.querySelector(".popup-title").textContent = data.title;
   popup.querySelector(".free").textContent = data.free;
   popup.querySelector(".auslastung_prozent").textContent = data.auslastung_prozent;
+  // Regler Position
+const regulator = popup.querySelector(".regulator");
+const barContainer = popup.querySelector(".auslastung-bar-container");
+
+if (regulator && barContainer) {
+  let percent = Math.max(0, Math.min(100, data.auslastung_prozent)); // Clamp between 0–100
+  regulator.textContent = `${percent}%`;
+  regulator.style.left = `${percent}%`;
+}
   popup.querySelector(".status-text").textContent = data.status;
   popup.querySelector(".address").textContent = data.address;
 }
