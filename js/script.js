@@ -100,10 +100,12 @@ Object.entries(popupMap).forEach(([buttonId, popupId]) => {
 // Popup schliessen - "x" Button
 document.querySelectorAll(".close").forEach(closeBtn => {
   closeBtn.addEventListener("click", () => {
-    const popup = closeBtn.closest(".popup");
+    const popupId = closeBtn.getAttribute("data-close");
+    const popup = document.getElementById(popupId);
     if (popup) popup.style.display = "none";
   });
 });
+
 
 // Popup schlisen - Klick ausserhalb
 window.addEventListener("click", (e) => {
