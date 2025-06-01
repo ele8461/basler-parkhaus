@@ -384,6 +384,22 @@ h2 {
   cursor: pointer;
 }
 
+/*Auslastung Regler*/
+.auslastung-bar-container {
+  width: 100%;
+  height: 20px;
+  background-color: #eee;
+  border-radius: 10px;
+  margin: 0.5rem 0;
+  overflow: hidden;
+}
+
+.auslastung-bar {
+  height: 100%;
+  transition: width 0.5s ease;
+  border-radius: 10px;
+}
+
 /* ------------- breakpoints ------------- */
 @media (min-width:640px){
 

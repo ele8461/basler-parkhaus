@@ -51,12 +51,12 @@ const popupMap = {
   "baselparkhausstorchen": "popup-storchen"
 };
 
-// Helper to find parkhouse data by ID
+// find parkhouse data by ID
 function getParkhouseData(id) {
   return parkHouses.find(p => p.id === id);
 }
 
-// Add click listeners to parkhaus buttons
+// click listeners to parkhaus buttons
 Object.keys(popupMap).forEach(buttonId => {
   const button = document.getElementById(buttonId);
   const popupId = popupMap[buttonId];
@@ -85,7 +85,7 @@ document.querySelectorAll(".close").forEach(closeBtn => {
   });
 });
 
-// Optional: Close popup on clicking outside popup content
+// Close popup on clicking outside popup content
 window.addEventListener("click", (e) => {
   document.querySelectorAll(".popup").forEach(popup => {
     if (e.target === popup) {
@@ -104,17 +104,12 @@ window.addEventListener("click", (e) => {
     //lat:
 
 
-// event scroll moveCar
-
 // event click popup
     // Datensatz anzeigen
     // Funktion Regler
   // dialog öffnen
   // daten darstellen
 
-// event click close_popup
 
 // event contentLoading kreisfarbe
     // Funktion if > 80% {rot} else {gruen}
-
-//event click button_zurueck
