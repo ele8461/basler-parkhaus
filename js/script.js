@@ -18,27 +18,35 @@ console.log(timetable); // gibt die Daten der API oder false in der Konsole aus
 const parkHouses = [
   {
     id: "baselparkhauseurope",
-    name: "Parkhaus Europe",
-    freie_plaetze: 85,
-    auslastung: 65,
+    title: "Parkhaus Europe",
+    auslastung_prozent: 0,
+    free: 0,
+    status: "",
+    adress: "Hammerstrasse 68",
   },
   {
     id: "baselparkhausclarahuus",
-    name: "Parkhaus Clarahuus",
-    freie_plaetze: 120,
-    auslastung: 40
+    title: "Parkhaus Clarahuus",
+    auslastung_prozent: 0,
+    free: 0,
+    status: "",
+    adress: "Webergasse 34",
   },
   {
     id: "baselparkhausrebgasse",
-    name: "Parkhaus Rebgasse",
-    freie_plaetze: 40,
-    auslastung: 85
+    title: "Parkhaus Rebgasse",
+    auslastung_prozent: 0,
+    free: 0,
+    status: "",
+    adress: "Rebgasse 20",
   },
   {
     id: "baselparkhausstorchen",
-    name: "Parkhaus Storchen",
-    freie_plaetze: 60,
-    auslastung: 70
+    title: "Parkhaus Storchen",
+    auslastung_prozent: 0,
+    free: 0,
+    status: "",
+    adress: "Fischmarkt 10",
   }
 ];
 
@@ -67,9 +75,9 @@ Object.keys(popupMap).forEach(buttonId => {
     if (!data) return;
 
     // Inject data dynamically
-    popup.querySelector(".popup-title").textContent = data.name;
-    popup.querySelector(".freie_plaetze").textContent = data.freie_plaetze;
-    popup.querySelector(".auslastung").textContent = data.auslastung;
+    popup.querySelector(".popup-title").textContent = data.title;
+    popup.querySelector(".free").textContent = data.free;
+    popup.querySelector(".auslastung_prozent").textContent = data.auslastung_prozent;
 
     // Show popup
     popup.style.display = "flex";
