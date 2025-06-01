@@ -3,52 +3,16 @@ console.log('hoi');
 // API-URL
 const url = 'https://data.bs.ch/api/explore/v2.1/catalog/datasets/100088/records?limit=20';
 
-// Fetch --> funktioniert noch nichts...
+// API-Daten laden
 async function loadParkhouseData() {
- try {
-        const response = await fetch(url);
-        return await response.json();
-    } catch (error) {
-        console.error(error);
-        return false;
+  try {
+    const response = await fetch(url);
+    return await response.json();
+  } catch (error) {
+    console.error(error);
+    return false;
   }
 }
-
-// Daten der Parkhäuser
-const parkHouses = [
-  {
-    id: "baselparkhauseurope",
-    title: "Parkhaus Europe",
-    auslastung_prozent: 30,
-    free: 0,
-    status: "",
-    address: "Hammerstrasse 68",
-  },
-  {
-    id: "baselparkhausclarahuus",
-    title: "Parkhaus Clarahuus",
-    auslastung_prozent: 0,
-    free: 0,
-    status: "",
-    address: "Webergasse 34",
-  },
-  {
-    id: "baselparkhausrebgasse",
-    title: "Parkhaus Rebgasse",
-    auslastung_prozent: 0,
-    free: 0,
-    status: "",
-    address: "Rebgasse 20",
-  },
-  {
-    id: "baselparkhausstorchen",
-    title: "Parkhaus Storchen",
-    auslastung_prozent: 0,
-    free: 0,
-    status: "",
-    address: "Fischmarkt 10",
-  }
-];
 
 // Verknüpfung id's mit den pop-ups
 const popupMap = {
@@ -58,38 +22,58 @@ const popupMap = {
   "baselparkhausstorchen": "popup-storchen"
 };
 
-// Funktion: hole Daten anhand id
-function getParkhouseData(id) {
-  return parkHouses.find(p => p.id === id);
-}
-
-// Fülle Popup mit Daten
+// Popup mit Daten füllen
 function fillPopup(popup, data) {
   popup.querySelector(".popup-title").textContent = data.title;
   popup.querySelector(".free").textContent = data.free;
   popup.querySelector(".auslastung_prozent").textContent = data.auslastung_prozent;
-  // Regler Position
-const regulator = popup.querySelector(".regulator");
-const barContainer = popup.querySelector(".auslastung-bar-container");
 
-if (regulator && barContainer) {
-  let percent = Math.max(0, Math.min(100, data.auslastung_prozent)); // Clamp between 0–100
-  regulator.textContent = `${percent}%`;
-  regulator.style.left = `${percent}%`;
-}
+  const regulator = popup.querySelector(".regulator");
+  const barContainer = popup.querySelector(".auslastung-bar-container");
+
+  if (regulator && barContainer) {
+    let percent = Math.max(0, Math.min(100, data.auslastung_prozent));
+    // Regler Position
+    regulator.textContent = `${percent}%`;
+    regulator.style.left = `${percent}%`;
+  }
+
   popup.querySelector(".status-text").textContent = data.status;
   popup.querySelector(".address").textContent = data.address;
 }
 
-// Event-Listener für Popup Buttons
+// Event Listener Buttons
 Object.entries(popupMap).forEach(([buttonId, popupId]) => {
   const button = document.getElementById(buttonId);
   const popup = document.getElementById(popupId);
-  const data = getParkhouseData(buttonId);
 
-  if (!button || !popup || !data) return;
+  if (!button || !popup) return;
 
-  button.addEventListener("click", () => {
+  button.addEventListener("click", async () => {
+    const apiData = await loadParkhouseData();
+    if (!apiData || !apiData.results) {
+      console.error("API-Daten konnten nicht geladen werden.");
+      return;
+    }
+
+    // Passendes Parkhaus finden
+    const result = apiData.results.find(item =>
+      item.name && item.name.toLowerCase().includes(buttonId.replace("baselparkhaus", ""))
+    );
+
+    if (!result) {
+      console.warn("Kein passendes Parkhaus gefunden.");
+      return;
+    }
+
+    const data = {
+      title: result.title,
+      auslastung_prozent: result.auslastung_prozent,
+      free: result.free,
+      status: result.status || "",
+      address: result.address || ""
+    };
+
     fillPopup(popup, data);
     popup.style.display = "flex";
   });
