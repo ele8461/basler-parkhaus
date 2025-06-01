@@ -94,6 +94,9 @@ p {
   font-weight: 400;
   line-height: 1.875rem;
 }
+.popup p {
+  color: black;
+}
 
 .button{
     display:flex;

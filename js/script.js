@@ -2,6 +2,7 @@ console.log('hoi')
 
 // fetch
 const url = 'https://data.bs.ch/api/explore/v2.1/catalog/datasets/100088/records?limit=20';
+
 async function loadTimetable() {
     try {
         const response = await fetch(url);
@@ -11,8 +12,6 @@ async function loadTimetable() {
         return false;
     }
 }
-const timetable = await loadTimetable();
-console.log(timetable); // gibt die Daten der API oder false in der Konsole aus
 
 // Datenstruktur der Parkhäuser
 const parkHouses = [
@@ -22,7 +21,7 @@ const parkHouses = [
     auslastung_prozent: 0,
     free: 0,
     status: "",
-    adress: "Hammerstrasse 68",
+    address: "Hammerstrasse 68",
   },
   {
     id: "baselparkhausclarahuus",
@@ -30,7 +29,7 @@ const parkHouses = [
     auslastung_prozent: 0,
     free: 0,
     status: "",
-    adress: "Webergasse 34",
+    address: "Webergasse 34",
   },
   {
     id: "baselparkhausrebgasse",
@@ -38,7 +37,7 @@ const parkHouses = [
     auslastung_prozent: 0,
     free: 0,
     status: "",
-    adress: "Rebgasse 20",
+    address: "Rebgasse 20",
   },
   {
     id: "baselparkhausstorchen",
@@ -46,12 +45,12 @@ const parkHouses = [
     auslastung_prozent: 0,
     free: 0,
     status: "",
-    adress: "Fischmarkt 10",
+    address: "Fischmarkt 10",
   }
 ];
 
 
-// Map buttons to their popup IDs
+// Verknüpfung id's und buttons
 const popupMap = {
   "baselparkhauseurope": "popup-europe",
   "baselparkhausclarahuus": "popup-clarahuus",
@@ -59,41 +58,51 @@ const popupMap = {
   "baselparkhausstorchen": "popup-storchen"
 };
 
-// find parkhouse data by ID
+// Hole ein Parkhaus-Objekt anhand der ID
 function getParkhouseData(id) {
   return parkHouses.find(p => p.id === id);
 }
 
-// click listeners to parkhaus buttons
-Object.keys(popupMap).forEach(buttonId => {
+// Fülle Popup mit Daten
+function fillPopup(popup, data) {
+  popup.querySelector(".popup-title").textContent = data.title;
+  popup.querySelector(".free").textContent = data.free;
+  popup.querySelector(".auslastung_prozent").textContent = data.auslastung_prozent;
+  popup.querySelector(".status-text").textContent = data.status;
+  popup.querySelector(".address").textContent = data.address;
+
+  const bar = popup.querySelector(".auslastung-bar");
+  if (bar) {
+    bar.style.width = `${data.auslastung_prozent}%`;
+    bar.style.backgroundColor = data.auslastung_prozent < 50 ? "green" :
+                                data.auslastung_prozent < 80 ? "orange" : "red";
+  }
+}
+
+// Event-Listener für Parkhaus-Buttons
+Object.entries(popupMap).forEach(([buttonId, popupId]) => {
   const button = document.getElementById(buttonId);
-  const popupId = popupMap[buttonId];
   const popup = document.getElementById(popupId);
+  const data = getParkhouseData(buttonId);
+
+  if (!button || !popup || !data) return;
 
   button.addEventListener("click", () => {
-    const data = getParkhouseData(buttonId);
-    if (!data) return;
-
-    // Inject data dynamically
-    popup.querySelector(".popup-title").textContent = data.title;
-    popup.querySelector(".free").textContent = data.free;
-    popup.querySelector(".auslastung_prozent").textContent = data.auslastung_prozent;
-
-    // Show popup
+    fillPopup(popup, data);
     popup.style.display = "flex";
   });
 });
 
-// Close popup on clicking the close button
+// Popups schliessen mit "x"-Button
 document.querySelectorAll(".close").forEach(closeBtn => {
   closeBtn.addEventListener("click", () => {
     const popupId = closeBtn.getAttribute("data-close");
     const popup = document.getElementById(popupId);
-    popup.style.display = "none";
+    if (popup) popup.style.display = "none";
   });
 });
 
-// Close popup on clicking outside popup content
+// Popups schliessen durch Klick ausserhalb des Inhalts
 window.addEventListener("click", (e) => {
   document.querySelectorAll(".popup").forEach(popup => {
     if (e.target === popup) {
@@ -102,22 +111,11 @@ window.addEventListener("click", (e) => {
   });
 });
 
-// was wir brauchen vom datensatz:
-//title
-//free
-//auslastung_prozent
-//status
-//address
-    //lon:
-    //lat:
-
-
-// event click popup
-    // Datensatz anzeigen
-    // Funktion Regler
-  // dialog öffnen
-  // daten darstellen
-
-
-// event contentLoading kreisfarbe
-    // Funktion if > 80% {rot} else {gruen}
+// Popups schliessen durch ESC
+window.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    document.querySelectorAll(".popup").forEach(popup => {
+      popup.style.display = "none";
+    });
+  }
+});
