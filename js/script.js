@@ -1,19 +1,20 @@
-console.log('hoi')
+console.log('hoi');
 
-// fetch
+// API-URL
 const url = 'https://data.bs.ch/api/explore/v2.1/catalog/datasets/100088/records?limit=20';
 
-async function loadTimetable() {
-    try {
+// Fetch --> funktioniert noch nichts...
+async function loadParkhouseData() {
+ try {
         const response = await fetch(url);
         return await response.json();
     } catch (error) {
         console.error(error);
         return false;
-    }
+  }
 }
 
-// Datenstruktur der Parkhäuser
+// Daten der Parkhäuser
 const parkHouses = [
   {
     id: "baselparkhauseurope",
@@ -49,8 +50,7 @@ const parkHouses = [
   }
 ];
 
-
-// Verknüpfung id's und buttons
+// Verknüpfung id's mit den pop-ups
 const popupMap = {
   "baselparkhauseurope": "popup-europe",
   "baselparkhausclarahuus": "popup-clarahuus",
@@ -58,7 +58,7 @@ const popupMap = {
   "baselparkhausstorchen": "popup-storchen"
 };
 
-// Hole ein Parkhaus-Objekt anhand der ID
+// Funktion: hole Daten anhand id
 function getParkhouseData(id) {
   return parkHouses.find(p => p.id === id);
 }
@@ -70,16 +70,9 @@ function fillPopup(popup, data) {
   popup.querySelector(".auslastung_prozent").textContent = data.auslastung_prozent;
   popup.querySelector(".status-text").textContent = data.status;
   popup.querySelector(".address").textContent = data.address;
-
-  const bar = popup.querySelector(".auslastung-bar");
-  if (bar) {
-    bar.style.width = `${data.auslastung_prozent}%`;
-    bar.style.backgroundColor = data.auslastung_prozent < 50 ? "green" :
-                                data.auslastung_prozent < 80 ? "orange" : "red";
-  }
 }
 
-// Event-Listener für Parkhaus-Buttons
+// Event-Listener für Popup Buttons
 Object.entries(popupMap).forEach(([buttonId, popupId]) => {
   const button = document.getElementById(buttonId);
   const popup = document.getElementById(popupId);
@@ -93,7 +86,11 @@ Object.entries(popupMap).forEach(([buttonId, popupId]) => {
   });
 });
 
-// Popups schliessen mit "x"-Button
+
+
+
+// ------------------------ Pop-up schliessen -----------------------//
+// Popup schliessen - "x" Button
 document.querySelectorAll(".close").forEach(closeBtn => {
   closeBtn.addEventListener("click", () => {
     const popupId = closeBtn.getAttribute("data-close");
@@ -102,7 +99,7 @@ document.querySelectorAll(".close").forEach(closeBtn => {
   });
 });
 
-// Popups schliessen durch Klick ausserhalb des Inhalts
+// Popup schlisen - Klick ausserhalb
 window.addEventListener("click", (e) => {
   document.querySelectorAll(".popup").forEach(popup => {
     if (e.target === popup) {
@@ -111,7 +108,7 @@ window.addEventListener("click", (e) => {
   });
 });
 
-// Popups schliessen durch ESC
+// Popup schliessen - ESC Taste
 window.addEventListener("keydown", (e) => {
   if (e.key === "Escape") {
     document.querySelectorAll(".popup").forEach(popup => {
