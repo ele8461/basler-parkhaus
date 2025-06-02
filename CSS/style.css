@@ -404,15 +404,8 @@ margin-bottom: 1rem;
   background: linear-gradient(to right, green, orange, red);
   border-radius: 10px;
   margin: 0.5rem 0;
-  overflow: hidden;
 }
 
-.auslastung-bar {
-  position: relative;
-  height: 100%;
-  transition: width 0.5s ease;
-  border-radius: 10px;
-}
 
 .regulator {
   position: absolute;
@@ -428,7 +421,8 @@ margin-bottom: 1rem;
   align-items: center;
   justify-content: center;
   pointer-events: none;
-  z-index: 2;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 /* ------------- breakpoints ------------- */
@@ -467,7 +461,7 @@ margin-bottom: 1rem;
 @media (min-width:1024px){
   .parkhaus_flaeche {
     padding: 2rem;}
-  .strasse{ width:15rem; }
+  .strasse{ width:13rem; }
   .icon_parkhaus{
       width: 7rem;
       height: 7rem;}

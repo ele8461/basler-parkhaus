@@ -14,7 +14,7 @@ async function loadParkhouseData() {
   }
 }
 
-// Verknüpfung id's mit den pop-ups
+// Verknüpfung buttons id parkhäuser mit popup
 const popupMap = {
   "baselparkhauseurope": "popup-europe",
   "baselparkhausclarahuus": "popup-clarahuus",
@@ -67,7 +67,7 @@ Object.entries(popupMap).forEach(([buttonId, popupId]) => {
     }
 
     const data = {
-      title: result.title,
+      title: result.name,
       auslastung_prozent: result.auslastung_prozent,
       free: result.free,
       status: result.status || "",
