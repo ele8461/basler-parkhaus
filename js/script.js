@@ -49,16 +49,18 @@ window.addEventListener("DOMContentLoaded", async () => {
 function fillPopup(popup, data) {
   popup.querySelector(".popup-title").textContent = data.title;
   popup.querySelector(".free").textContent = data.free;
-  popup.querySelector(".auslastung_prozent").textContent = data.auslastung_prozent;
 
   const regulator = popup.querySelector(".regulator");
   const barContainer = popup.querySelector(".auslastung-bar-container");
+  const percentSpan = popup.querySelector(".regulator .auslastung_prozent");
 
-  if (regulator && barContainer) {
+  if (regulator && barContainer && typeof data.auslastung_prozent === "number") {
     let percent = Math.max(0, Math.min(100, data.auslastung_prozent));
-    // Regler Position
-    regulator.textContent = `${percent}%`;
     regulator.style.left = `${percent}%`;
+
+    if (percentSpan) {
+      percentSpan.textContent = `${percent}`;
+    }
   }
 
   popup.querySelector(".status-text").textContent = data.status;
