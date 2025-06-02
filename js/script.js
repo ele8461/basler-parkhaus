@@ -14,13 +14,36 @@ async function loadParkhouseData() {
   }
 }
 
-// Verknüpfung buttons id parkhäuser mit popup
+// Verknüpfung buttons id (parkhäuser) mit zugehörigem popup
 const popupMap = {
   "baselparkhauseurope": "popup-europe",
   "baselparkhausclarahuus": "popup-clarahuus",
   "baselparkhausrebgasse": "popup-rebgasse",
   "baselparkhausstorchen": "popup-storchen"
 };
+
+
+// status-farbe on page load
+window.addEventListener("DOMContentLoaded", async () => {
+  const data = await loadParkhouseData();
+  if (!data?.results) return;
+
+  Object.keys(popupMap).forEach(id => {
+    const button = document.getElementById(id);
+    const result = data.results.find(r =>
+      r.name?.toLowerCase().includes(id.replace("baselparkhaus", ""))
+    );
+    const circle = button?.querySelector(".status");
+    const percent = result?.auslastung_prozent;
+
+    if (circle && typeof percent === "number") {
+      circle.style.backgroundColor =
+        percent <= 40 ? "var(--gruen)" :
+        percent <= 80 ? "var(--orange)" :
+        "var(--rot)";
+    }
+  });
+});
 
 // Popup mit Daten füllen
 function fillPopup(popup, data) {
@@ -67,7 +90,7 @@ Object.entries(popupMap).forEach(([buttonId, popupId]) => {
     }
 
     const data = {
-      title: result.name,
+      title: result.title,
       auslastung_prozent: result.auslastung_prozent,
       free: result.free,
       status: result.status || "",
@@ -78,6 +101,7 @@ Object.entries(popupMap).forEach(([buttonId, popupId]) => {
     popup.style.display = "flex";
   });
 });
+
 
 
 // ------------------------ Pop-up schliessen -----------------------//

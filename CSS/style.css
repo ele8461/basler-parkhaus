@@ -336,6 +336,12 @@ h2 {
   font-size: 1rem;
 }
 
+.icon_parkhaus{
+        width: 4rem;
+        height: 4rem;
+        flex-shrink: 0;  
+        margin-bottom: 1rem;
+}
 
 .status {
     background-color: var(--gruen);   
@@ -345,11 +351,10 @@ h2 {
     margin-top: 1rem;
 }
 
-.icon_parkhaus{
-        width: 4rem;
-        height: 4rem;
-        flex-shrink: 0;  
-        margin-bottom: 1rem;
+:root {
+  --gruen: #28a745;
+  --orange: #fd7e14;
+  --rot: #dc3545;
 }
 
 /* ------------- pop-up fenster ------------- */
