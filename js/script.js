@@ -16,10 +16,10 @@ async function loadParkhouseData() {
 
 // Verknüpfung buttons id (parkhäuser) mit zugehörigem popup
 const popupMap = {
-  "baselparkhauseurope": "popup-europe",
-  "baselparkhausclarahuus": "popup-clarahuus",
-  "baselparkhausrebgasse": "popup-rebgasse",
-  "baselparkhausstorchen": "popup-storchen"
+  "baselparkhauseurope": "popup_europe",
+  "baselparkhausclarahuus": "popup_clarahuus",
+  "baselparkhausrebgasse": "popup_rebgasse",
+  "baselparkhausstorchen": "popup_storchen"
 };
 
 
@@ -47,11 +47,11 @@ window.addEventListener("DOMContentLoaded", async () => {
 
 // Popup mit Daten füllen
 function fillPopup(popup, data) {
-  popup.querySelector(".popup-title").textContent = data.title;
+  popup.querySelector(".popup_title").textContent = data.title;
   popup.querySelector(".free").textContent = data.free;
 
   const regulator = popup.querySelector(".regulator");
-  const barContainer = popup.querySelector(".auslastung-bar-container");
+  const barContainer = popup.querySelector(".auslastung_bar_container");
   const percentSpan = popup.querySelector(".regulator .auslastung_prozent");
 
   if (regulator && barContainer && typeof data.auslastung_prozent === "number") {
@@ -63,7 +63,7 @@ function fillPopup(popup, data) {
     }
   }
 
-  popup.querySelector(".status-text").textContent = data.status;
+  popup.querySelector(".status_text").textContent = data.status;
   popup.querySelector(".address").textContent = data.address;
 }
 
