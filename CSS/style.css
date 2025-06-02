@@ -433,6 +433,51 @@ margin-bottom: 1rem;
   padding-right: 1rem;
 }
 
+/* ----------- footer ------------ */
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--dunkelgrau);
+    color: #fff;
+    padding: 10px 20px;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 10;
+}
+
+.footer_left,
+.footer_center,
+.footer_right {
+    flex: 1;
+    min-width: 200px;
+    text-align: center;
+}
+
+.footer_left {
+    text-align: left;
+}
+
+.footer_center {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.footer_right {
+    text-align: right;
+}
+
+.footer_logo {
+    height: 40px;
+    width: auto;
+}
+
+.footer_phone,
+.footer_email {
+    margin: 2px 0;
+    font-size: 0.95rem;
+}
+
 /* ------------- breakpoints ------------- */
 @media (min-width:640px){
 
