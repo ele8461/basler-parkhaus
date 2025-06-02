@@ -64,7 +64,9 @@ function fillPopup(popup, data) {
   }
 
   popup.querySelector(".status_text").textContent = data.status;
-  popup.querySelector(".address").textContent = data.address;
+  
+  const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${data.lat},${data.lon}`;
+  popup.querySelector(".address").innerHTML = `<a href="${mapsUrl}" target="_blank" rel="noopener noreferrer">${data.address}</a>`;
 }
 
 // Event Listener Buttons
@@ -96,7 +98,9 @@ Object.entries(popupMap).forEach(([buttonId, popupId]) => {
       auslastung_prozent: result.auslastung_prozent,
       free: result.free,
       status: result.status || "",
-      address: result.address || ""
+      address: result.address || "",
+      lat: result.geo_point_2d?.lat,
+      lon: result.geo_point_2d?.lon,
     };
 
     fillPopup(popup, data);
