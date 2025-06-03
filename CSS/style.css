@@ -13,6 +13,7 @@
     --parkhaus: #435266;
     --dunkelgrau: #353535;
     --grau: grey;
+    --dunkelblau: #133F63;
     --font-primary: "Univers LT", Arial, sans-serif;
   }
  
@@ -84,6 +85,11 @@ h1 {
   font-stretch: expanded;
   font-size: 1.8rem;
 }
+h3{
+  font-size: 1rem;
+  font-family: "Univers LT", sans-serif;
+  font-style: bold;
+}
 
 p {
   color: #FFF;
@@ -128,6 +134,7 @@ color: var(--dunkelgrau);
 text-align: center;
 font-family: "Univers LT", sans-serif;
 font-size: 1.5rem;
+text-transform: uppercase;
 font-style: italic;
 font-weight: 1000;
 letter-spacing: 0.1rem;
@@ -205,8 +212,8 @@ border-radius: 0.5rem;
 
 @keyframes animation {
   0%,   30%  { top: 0; }
-  33%,  63%  { top: -50px; } 
-  66%,  96%  { top: -100px; }
+  33%,  63%  { top: -52px; } 
+  66%,  96%  { top: -105px; }
   100%       { top: 0; }
 }
 
@@ -325,7 +332,7 @@ align-items: center;
 }
 
 .parkhaus_flaeche:hover {
-  background: #133F63; 
+  background: var(--dunkelblau); 
 }
 
 h2 {
@@ -438,9 +445,9 @@ margin-bottom: 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--dunkelgrau);
+    background-color: var(--parkhaus);
     color: #fff;
-    padding: 10px 20px;
+    padding: 1rem 1.25rem;
     flex-wrap: wrap;
     position: relative;
     z-index: 10;
@@ -455,16 +462,19 @@ margin-bottom: 1rem;
 }
 
 .footer_left {
-    text-align: left;
+    text-align: center;
+    padding: 0.5rem;
 }
 
 .footer_center {
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: bold;
+    padding: 0.5rem;
 }
 
 .footer_right {
     text-align: right;
+    padding: 0.5rem;
 }
 
 .footer_logo {
@@ -475,7 +485,7 @@ margin-bottom: 1rem;
 .footer_phone,
 .footer_email {
     margin: 2px 0;
-    font-size: 0.95rem;
+    font-size: 1rem;
 }
 
 /* ------------- breakpoints ------------- */
@@ -496,6 +506,9 @@ margin-bottom: 1rem;
     padding: 0.5rem;  
     font-size: 1rem  
   }
+  h3{
+    font-size: 1.25rem;
+  }
   .section_parkhaus_links{
     margin-left: 2rem;
   }
@@ -508,7 +521,9 @@ margin-bottom: 1rem;
 .section_highlights .section_highlights_rechts{
   max-height: 30vh;
 }
-
+.footer_left {
+  text-align: left;
+}
 }
 
 @media (min-width:1024px){
