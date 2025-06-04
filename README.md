@@ -22,7 +22,8 @@ Nach dem Kick-Off war dann klar, dass wir so rasch wie möglich die HTML und CSS
 Verzweiflung und Freude war selten so nahe beieinander aber das Projekt hat zusammenfassend sehr  grossenSpass gemacht.*
 
 
-RESSOURCEN & PROMTS 
+RESSOURCEN & PROMTS
+
 Ressourcen: • API: Basel Parkhaus API • HTML, CSS, JavaScript • Lea & Beni
 
 Prompts
