@@ -24,10 +24,10 @@
 /* ------------- fonts ------------- */
 @font-face {
   font-family: "Univers LT";
-  src: url("/fonts/Univers\ LT\ 55\ Roman.woff2") format("woff2"),
-       url("/fonts/Univers\ LT\ 55\ Roman.woff")  format("woff"),
-       url("/fonts/Univers-LT-55-Roman.otf")   format("opentype"),
-       url("/fonts/Univers\ LT\ 55\ Roman.ttf")   format("truetype");
+  src: url("/fonts/univers_lt_55_roman.woff2") format("woff2"),
+       url("/fonts/univers_lt_55_roman.woff")  format("woff"),
+       url("/fonts/univers_lt_55_roman.otf")   format("opentype"),
+       url("/fonts/univers_lt_55_roman.ttf")   format("truetype");
   font-weight: 400;
   font-style : normal;
   font-display: swap;
@@ -35,10 +35,10 @@
 
 @font-face {
   font-family: "Univers LT";
-  src: url("/fonts/Univers\ LT\ 65\ Bold.woff2") format("woff2"),
-       url("/fonts/Univers\ LT\ 65\ Bold.woff")  format("woff"),
-       url("/fonts/Univers-LT-65-Bold.otf")   format("opentype"),
-       url("/fonts/Univers\ LT\ 65\ Bold.ttf")   format("truetype");
+  src: url("/fonts/univers_lt_65_bold.woff2") format("woff2"),
+       url("/fonts/univers_lt_65_bold.woff")  format("woff"),
+       url("/fonts/univers_lt_65_bold.otf")   format("opentype"),
+       url("/fonts/univers_lt_65_bold.ttf")   format("truetype");
   font-weight: 700;
   font-style : normal;
   font-display: swap;
@@ -46,10 +46,10 @@
 
 @font-face {
   font-family: "Univers LT";
-  src: url("/fonts/UniversLT-93ExtraBlackExtOblique.woff2") format("woff2"),
-       url("/fonts/UniversLT-93ExtraBlackExtOblique.woff")  format("woff"),
-       url("/fonts/UniversLT-93ExtraBlackExtOblique.otf")   format("opentype"),
-       url("/fonts/UniversLT-93ExtraBlackExtOblique.ttf")   format("truetype");
+  src: url("/fonts/univers_lt_93_extra_black_extended_oblique.woff2") format("woff2"),
+       url("/fonts/univers_lt_93_extra_black_extended_oblique.woff")  format("woff"),
+       url("/fonts/univers_lt_93_extra_black_extended_oblique.otf")   format("opentype"),
+       url("/fonts/univers_lt_93_extra_black_extended_oblique.ttf")   format("truetype");
   font-weight: 900;          
   font-stretch: expanded;    
   font-style : oblique 10deg;
@@ -117,27 +117,28 @@ p {
     var(--gelb) 0%, 
     var(--hellgelb) 50%, 
     var(--gelb) 100%); 
-width: 15rem;
-height: 4.5rem;
-flex-shrink: 0;
-cursor: pointer;
+  width: 15rem;
+  height: 4.5rem;
+  flex-shrink: 0;
+  cursor: pointer;
 
-border: none;
-border-radius: 0.5rem;
+  border: none;
+  border-radius: 0.5rem;
 
-display: flex;                
-align-items: center;          
-justify-content: center;      
-text-align: center;
+  display: flex;                
+  align-items: center;          
+  justify-content: center;      
+  text-align: center;
 
-color: var(--dunkelgrau);
-text-align: center;
-font-family: "Univers LT", sans-serif;
-font-size: 1.5rem;
-text-transform: uppercase;
-font-style: italic;
-font-weight: 1000;
-letter-spacing: 0.1rem;
+  color: var(--dunkelgrau);
+  text-align: center;
+  font-family: "Univers LT", sans-serif;
+  font-size: 1.25rem;
+  font-stretch: expanded;
+  text-transform: uppercase;
+  font-style: italic;
+  font-weight: 1000;
+  letter-spacing: 0.1rem;
 }
 
 .button_hg:hover{
@@ -202,8 +203,9 @@ border-radius: 0.5rem;
   color: var(--dunkelgrau);
   text-align: center;
   font-family: "Univers LT", sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-style: italic;
+  font-stretch: expanded;
   font-weight: 1000;
   letter-spacing: 0.1rem;
   animation: animation 6s
