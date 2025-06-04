@@ -1,9 +1,9 @@
 console.log('hoi');
 
-// API-URL
+// api-url
 const url = 'https://data.bs.ch/api/explore/v2.1/catalog/datasets/100088/records?limit=20';
 
-// API-Daten laden
+// api-daten laden
 async function loadParkhouseData() {
   try {
     const response = await fetch(url);
@@ -14,7 +14,7 @@ async function loadParkhouseData() {
   }
 }
 
-// Verknüpfung buttons id (parkhäuser) mit zugehörigem popup
+// verknüpfung buttons id (parkhäuser) mit zugehörigem popup
 const popupMap = {
   "baselparkhauseurope": "popup_europe",
   "baselparkhausclarahuus": "popup_clarahuus",
@@ -45,7 +45,7 @@ window.addEventListener("DOMContentLoaded", async () => {
   });
 });
 
-// Popup mit Daten füllen
+// popup mit daten füllen
 function fillPopup(popup, data) {
   popup.querySelector(".popup_title").textContent = data.title;
   popup.querySelector(".free").textContent = data.free;
@@ -69,7 +69,7 @@ function fillPopup(popup, data) {
   popup.querySelector(".address").innerHTML = `<a href="${mapsUrl}" target="_blank" rel="noopener noreferrer">${data.address}</a>`;
 }
 
-// Event Listener Buttons
+// event listener buttons
 Object.entries(popupMap).forEach(([buttonId, popupId]) => {
   const button = document.getElementById(buttonId);
   const popup = document.getElementById(popupId);
@@ -83,7 +83,7 @@ Object.entries(popupMap).forEach(([buttonId, popupId]) => {
       return;
     }
 
-    // Passendes Parkhaus finden
+    // passendes parkhaus finden
     const result = apiData.results.find(item =>
       item.name && item.name.toLowerCase().includes(buttonId.replace("baselparkhaus", ""))
     );
@@ -110,8 +110,8 @@ Object.entries(popupMap).forEach(([buttonId, popupId]) => {
 
 
 
-// ------------------------ Pop-up schliessen -----------------------//
-// Popup schliessen - "x" Button
+// ------------------------ pop-up schliessen -----------------------//
+// popup schliessen - x-button
 document.querySelectorAll(".close").forEach(closeBtn => {
   closeBtn.addEventListener("click", () => {
     const popupId = closeBtn.getAttribute("data-close");
@@ -121,7 +121,7 @@ document.querySelectorAll(".close").forEach(closeBtn => {
 });
 
 
-// Popup schlisen - Klick ausserhalb
+// popup schlisen - klick ausserhalb
 window.addEventListener("click", (e) => {
   document.querySelectorAll(".popup").forEach(popup => {
     if (e.target === popup) {
@@ -130,7 +130,7 @@ window.addEventListener("click", (e) => {
   });
 });
 
-// Popup schliessen - ESC Taste
+// popup schliessen - eesc-taste
 window.addEventListener("keydown", (e) => {
   if (e.key === "Escape") {
     document.querySelectorAll(".popup").forEach(popup => {

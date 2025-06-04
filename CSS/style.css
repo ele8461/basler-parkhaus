@@ -1,4 +1,4 @@
-/* ------------- globale_einstellungen ------------- */
+/* ------------- globale einstellungen ------------- */
 * {
     margin: 0;
     padding: 0;
@@ -14,8 +14,10 @@
     --dunkelgrau: #353535;
     --grau: grey;
     --dunkelblau: #133F63;
+    --orange: #fd7e14;
+    --rot: #dc3545;
     --font-primary: "Univers LT", Arial, sans-serif;
-  }
+    }
  
   html{
     scroll-behavior: smooth;  
@@ -88,7 +90,7 @@ h1 {
 h3{
   font-size: 1rem;
   font-family: "Univers LT", sans-serif;
-  font-style: bold;
+  font-weight: bold;
 }
 
 p {
@@ -173,7 +175,7 @@ p {
     width: 75vw;
 }
 
-/* ------------- animation_button_ready ------------- */
+/* ------------- animation button ready ------------- */
 .hintergrund{
   background: linear-gradient(to right, 
   var(--gelb) 0%, 
@@ -220,9 +222,6 @@ border-radius: 0.5rem;
 }
 
 
-
-
-
 /* ------------- highlights ------------- */
 .section_rhein img {
   width: 100%;
@@ -253,7 +252,6 @@ border-radius: 0.5rem;
   width: 30%;
   height: auto;
 }
-
 
 
 
@@ -348,6 +346,18 @@ h2 {
   font-size: 1rem;
 }
 
+.titel_parkhaus {
+  font-family: 'Univers', sans-serif;
+  font-weight: bold;
+  background-color: var(--blau);  
+  color: white;             
+  text-align: center;
+  display: inline-block;
+  border-radius: 0.5rem;      
+  padding: 0.5rem 1rem; 
+  font-size: 1rem;
+}
+
 .icon_parkhaus{
         width: 4rem;
         height: 4rem;
@@ -361,12 +371,6 @@ h2 {
     height: 2rem;            
     border-radius: 50%;
     margin-top: 1rem;
-}
-
-:root {
-  --gruen: #28a745;
-  --orange: #fd7e14;
-  --rot: #dc3545;
 }
 
 /* ------------- pop-up fenster ------------- */
@@ -404,7 +408,7 @@ margin-bottom: 1rem;
   font-size: 1rem;
 }
 
-/* Close X button */
+/* close x-button */
 .close {
   position: absolute;
   top: 10px;
@@ -413,12 +417,15 @@ margin-bottom: 1rem;
   cursor: pointer;
 }
 
-/*-----Auslastung Regler-------*/
+/*----- auslastung Regler -------*/
 .auslastung_bar_container {
   position: relative;
   width: 100%;
   height: 20px;
-  background: linear-gradient(to right, green, orange, red);
+  background: linear-gradient(to right, 
+  var(--gruen) 0%, 
+  var(--orange) 50%, 
+  var(--rot) 100%);
   border-radius: 10px;
   margin: 0.5rem 0;
 }
@@ -504,6 +511,9 @@ margin-bottom: 1rem;
   .icon_parkhaus{
       width: 4rem;
       height: 4rem;}
+  .titel_parkhaus{
+      padding: 0.5rem;  
+      font-size: 1rem;}
   h2{
     padding: 0.5rem;  
     font-size: 1rem  
@@ -520,9 +530,9 @@ margin-bottom: 1rem;
   #logo{
     width: 50vw;
 }
-.section_highlights .section_highlights_rechts{
+/*.section_highlights .section_highlights_rechts{
   max-height: 30vh;
-}
+}*/
 .footer_left {
   text-align: left;
 }
@@ -535,7 +545,10 @@ margin-bottom: 1rem;
   .icon_parkhaus{
       width: 7rem;
       height: 7rem;}
-  h2 { 
+  .titel_parkhaus { 
+      font-size: 1.5rem
+      }
+   h2 { 
     font-size: 1.5rem
   }
   .section_parkhaus_links{
@@ -551,9 +564,13 @@ margin-bottom: 1rem;
    .icon_parkhaus{
       width: 7rem;
       height: 7rem;}
+  .titel_parkhaus{
+      font-size: 1.75rem
+     }
   h2{
     font-size: 1.75rem
   }
+
   .section_parkhaus_links{
     margin-left: 5rem;
   }
